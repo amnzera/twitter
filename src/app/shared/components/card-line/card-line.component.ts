@@ -32,7 +32,7 @@ export class CardLineComponent implements OnInit, OnDestroy {
       if(Date.parse(diferenca) < 60000) {
         this.dateNow = 'Agora';
       } else {
-        this.dateNow = new Date().toLocaleString().slice(0, -3);
+        this.dateNow = inicio.toLocaleString().slice(0, -3);
       }
 
       console.log( Date.parse(diferenca)  );
