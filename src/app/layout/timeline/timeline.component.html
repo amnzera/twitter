@@ -1,4 +1,4 @@
-<main>
+<main *ngIf="timeline">
 
   <section *ngFor="let timeItem of timeline">
     <app-card-line (removeEmitter)="removeItem($event)" [timeItem]="timeItem"></app-card-line>

@@ -20,8 +20,7 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      message: this.formBuilder.control(null , [Validators.required, Validators.max(130)]),
-      date: this.formBuilder.control(new Date())
+      message: this.formBuilder.control(null , [Validators.required, Validators.max(130)])
     });
   }
 
@@ -29,7 +28,7 @@ export class HeaderComponent implements OnInit{
     if (this.form.invalid) {
       return;
     }
-    this.timeline.addTimeline(this.form.value as Timeline)
+    this.timeline.addTimeline( {  message: this.form.get('message').value , date: new Date()  }  as Timeline)
     this.form.reset();
   }
 

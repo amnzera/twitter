@@ -18,7 +18,7 @@ export class CardLineComponent implements OnInit, OnDestroy {
   @ViewChild('modalRemoveComponent') modalRef!:ModalRemoveComponent
 
   ngOnInit(): void {
-   this.loopforTime();
+    this.loopforTime();
   }
 
   loopforTime(){
