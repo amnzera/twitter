@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {TimelineService} from "@core/services/timeline.service";
 import {Timeline} from "@data/interface/timeline";
@@ -11,6 +11,7 @@ import {Timeline} from "@data/interface/timeline";
 export class HeaderComponent implements OnInit{
 
   public form: UntypedFormGroup = {} as UntypedFormGroup;
+  @Output() trigger: EventEmitter<unknown> = new EventEmitter<unknown>();
 
   constructor(
     private readonly formBuilder: UntypedFormBuilder,
@@ -29,6 +30,7 @@ export class HeaderComponent implements OnInit{
       return;
     } else {
       this.timeline.addTimeline( {  message: this.form.get('message')?.value , date: new Date()  }  as Timeline)
+      this.trigger.emit();
       this.form.reset();
     }
   }

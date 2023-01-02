@@ -15,13 +15,11 @@ export class TimelineComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    if(this.timeline){
-     this.loadTimeline()
-    }
+    this.loadTimeline()
   }
 
   loadTimeline(){
-    this.timeline = this.timelineService.getTimelineStorage();
+    this.timeline = this.timelineService.getTimelineStorage() || [];
   }
 
   removeItem(event: Timeline) {

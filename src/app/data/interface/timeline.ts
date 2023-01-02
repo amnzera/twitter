@@ -1,4 +1,4 @@
 export interface Timeline {
-  message: string;
-  date: Date;
+  message?: string;
+  date?: Date;
 }

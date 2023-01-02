@@ -6,28 +6,34 @@ import {Timeline} from "@data/interface/timeline";
 })
 export class TimelineService {
 
-  timeline: Timeline[] = [];
+  public timelineArray: Timeline[] = []
 
   constructor() { }
 
   addTimeline(timeline: Timeline){
-    this.timeline.push(timeline);
+    this.timelineArray.push(timeline);
     this.keepDataLocal();
   }
 
   removeTimeline(dataItem: Timeline){
-    this.timeline = this.timeline.filter((item:Timeline) => item !== dataItem)
+    this.timelineArray = this.timelineArray.filter((item:Timeline) => item !== dataItem)
     this.keepDataLocal();
   }
 
 
   keepDataLocal(){
-    localStorage.setItem('timelineState' , JSON.stringify(this.timeline))
+    localStorage.setItem('timelineState' , JSON.stringify(this.timelineArray))
   }
 
   getTimelineStorage(){
+    if(localStorage.getItem('timelineState')){
     // @ts-ignore
-    const temp = JSON.parse(localStorage.getItem('timelineState')) as Timeline[];
-    return this.timeline = temp;
+      let temp = JSON.parse(localStorage.getItem('timelineState')) as Timeline[];
+      this.timelineArray = temp;
+      return temp;
+    } else {
+      return
+    }
+
   }
 }
