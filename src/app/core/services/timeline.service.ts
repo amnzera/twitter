@@ -26,6 +26,7 @@ export class TimelineService {
   }
 
   getTimelineStorage(){
+    // @ts-ignore
     const temp = JSON.parse(localStorage.getItem('timelineState')) as Timeline[];
     return this.timeline = temp;
   }

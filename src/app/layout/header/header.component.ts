@@ -25,11 +25,13 @@ export class HeaderComponent implements OnInit{
   }
 
   submit(){
+    console.log(this.form.invalid)
     if (this.form.invalid) {
       return;
+    } else {
+      this.timeline.addTimeline( {  message: this.form.get('message')?.value , date: new Date()  }  as Timeline)
+      this.form.reset();
     }
-    this.timeline.addTimeline( {  message: this.form.get('message').value , date: new Date()  }  as Timeline)
-    this.form.reset();
   }
 
 }
