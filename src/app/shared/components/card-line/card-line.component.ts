@@ -35,7 +35,6 @@ export class CardLineComponent implements OnInit, OnDestroy {
         this.dateNow = inicio.toLocaleString().slice(0, -3);
       }
 
-      console.log( Date.parse(diferenca)  );
     },1000);
 
   }
