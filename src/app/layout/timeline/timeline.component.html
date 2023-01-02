@@ -1,0 +1,8 @@
+<main>
+
+  <section *ngFor="let timeItem of timeline; let i = index">
+    <app-card-line (removeEmitter)="removeItem($event)" [timeItem]="timeItem" [index]="i"></app-card-line>
+  </section>
+
+</main>
+

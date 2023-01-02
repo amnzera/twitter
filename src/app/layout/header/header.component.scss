@@ -1,0 +1,31 @@
+main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+textarea {
+  border: none;
+  padding: 16px;
+  resize: none;
+  overflow: auto;
+  outline: none;
+}
+
+.icons-container{
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #5671c2;
+  opacity: 0.8;
+}
+
+.title{
+  font-weight: 600;
+  font-size: 1.2rem;
+}

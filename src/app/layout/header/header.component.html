@@ -1,0 +1,41 @@
+<main>
+  <section class="col-6">
+
+    <form class="card" [formGroup]="form" (submit)="submit()" >
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+        <span class="title">
+           Página Inicial
+        </span>
+        </li>
+        <li class="list-group-item d-flex justify-content-around">
+
+
+          <img src="assets/images/person.png" alt="user" class="img-thumbnail">
+
+          <textarea formControlName="message" placeholder="O que está acontecendo ?" cols="60" rows="3"
+                    (keyup.enter)="submit()" [maxlength]="130"></textarea>
+        </li>
+        <li class="list-group-item d-flex justify-content-between">
+
+          <div class="icons-container">
+            <i class="bi bi-card-image"></i>
+            <i class="bi bi-filetype-gif"></i>
+            <i class="bi bi-bar-chart-steps"></i>
+            <i class="bi bi-emoji-smile"></i>
+            <i class="bi bi-calendar-check"></i>
+            <div></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary"
+                  [disabled]="form.get('message')?.invalid && form.get('message')?.touched"
+          >Tweetar</button>
+        </li>
+      </ul>
+
+    </form>
+
+  </section>
+
+</main>
