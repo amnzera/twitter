@@ -30,6 +30,7 @@ export class HeaderComponent implements OnInit{
       return;
     }
     this.timeline.addTimeline(this.form.value as Timeline)
+    this.form.reset();
   }
 
 }

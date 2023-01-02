@@ -11,7 +11,6 @@ export class CardLineComponent implements OnInit, OnDestroy {
 
 
   @Input() timeItem: Timeline | undefined;
-  @Input() index: number | undefined;
   @Output() removeEmitter: EventEmitter<Timeline> = new EventEmitter<Timeline>();
 
   public dateNow: string = '';
@@ -23,19 +22,20 @@ export class CardLineComponent implements OnInit, OnDestroy {
   }
 
   loopforTime(){
-    this.clockHandle = setInterval(()=> {
+    this.clockHandle = setInterval(()=>{
       // @ts-ignore
-      var begin = new Date(this.timeItem?.date);
-      var current = new Date();
-      var diference = (new Date(current.valueOf() - begin.valueOf())).toISOString();
+      var inicio = new Date(this.timeItem?.date);
+      var fim = new Date();
+      var diferenca = (new Date(fim.valueOf() - inicio.valueOf())).toISOString();
 
 
-      if(Date.parse(diference) < 60000) {
+      if(Date.parse(diferenca) < 60000) {
         this.dateNow = 'Agora';
       } else {
         this.dateNow = new Date().toLocaleString().slice(0, -3);
       }
 
+      console.log( Date.parse(diferenca)  );
     },1000);
 
   }
