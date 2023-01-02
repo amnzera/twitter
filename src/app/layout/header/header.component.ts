@@ -25,7 +25,6 @@ export class HeaderComponent implements OnInit{
   }
 
   submit(){
-    console.log(this.form.invalid)
     if (this.form.invalid) {
       return;
     } else {
