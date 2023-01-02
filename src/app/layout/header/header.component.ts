@@ -20,12 +20,15 @@ export class HeaderComponent implements OnInit{
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      message: this.formBuilder.control(null , [Validators.required, Validators.max(130), Validators.min(3)]),
+      message: this.formBuilder.control(null , [Validators.required, Validators.max(130)]),
       date: this.formBuilder.control(new Date())
     });
   }
 
   submit(){
+    if (this.form.invalid) {
+      return;
+    }
     this.timeline.addTimeline(this.form.value as Timeline)
   }
 

@@ -23,10 +23,8 @@ export class CardLineComponent implements OnInit, OnDestroy {
    this.loopforTime();
   }
 
-  // postDate = agora
-
   loopforTime(){
-    this.clockHandle = setInterval(()=>{
+    this.clockHandle = setInterval(()=> {
       // @ts-ignore
       var inicio = new Date(this.timeItem?.date);
       var fim = new Date();
@@ -39,7 +37,6 @@ export class CardLineComponent implements OnInit, OnDestroy {
         this.dateNow = new Date().toLocaleString();
       }
 
-      console.log( Date.parse(diferenca)  );
     },1000);
 
   }

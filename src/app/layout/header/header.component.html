@@ -29,8 +29,10 @@
           </div>
 
           <button type="submit" class="btn btn-primary"
-                  [disabled]="form.get('message')?.invalid && form.get('message')?.touched"
-          >Tweetar</button>
+                  [disabled]="form.invalid && !form.get('message')?.touched">
+            Tweetar
+          </button>
+
         </li>
       </ul>
 

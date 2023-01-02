@@ -16,7 +16,6 @@ export class TimelineService {
   }
 
   removeTimeline(dataItem: Timeline){
-    console.log(dataItem)
     this.timeline = this.timeline.filter((item:Timeline) => item !== dataItem)
     this.keepDataLocal();
   }
